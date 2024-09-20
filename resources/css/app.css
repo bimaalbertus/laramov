@@ -1,0 +1,95 @@
+@import url("https://fonts.cdnfonts.com/css/product-sans");
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
+@import url("https://fonts.cdnfonts.com/css/euclid-circular-b");
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    background-color: rgba(167, 167, 167, 0.7);
+    width: 4px;
+    height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: hsla(235, 21%, 11%, 0.322);
+    box-shadow: 0 0 3px hsl(235, 21%, 11%);
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(167, 167, 167, 0.7);
+    transition: 0.3s ease-in-out;
+}
+
+.gradient-bg {
+    background: linear-gradient(
+        to top,
+        rgb(255, 255, 255) 10%,
+        rgb(255, 255, 255, 0.5) 50%,
+        rgb(255, 255, 255, 0)
+    );
+}
+
+.dark .gradient-bg {
+    background: linear-gradient(
+        to top,
+        rgb(18, 18, 18) 10%,
+        rgb(18, 18, 18, 0.7) 50%,
+        rgb(18, 18, 18, 0.5) 90%,
+        rgb(18, 18, 18, 0)
+    );
+}
+
+.glass {
+    background-color: rgb(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(18, 18, 18, 0.3);
+    backdrop-filter: blur(7.2px);
+    -webkit-backdrop-filter: blur(7.2px);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.dark .glass {
+    background-color: rgb(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(18, 18, 18, 0.3);
+    backdrop-filter: blur(7.2px);
+    -webkit-backdrop-filter: blur(7.2px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.horizontal-line {
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.transparent-btn {
+    background-color: transparent;
+    border-radius: 40px;
+    font-family: "Euclid Circular B", sans-serif;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+    cursor: pointer;
+}
+
+.active {
+    background-color: rgb(255, 255, 255, 0.1);
+    border-radius: 40px;
+    box-shadow: 0 4px 30px rgba(18, 18, 18, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.box-shadow-purple {
+    box-shadow: 0 4px 30px rgba(210, 168, 255, 0.5);
+}
