@@ -10,9 +10,9 @@
 </button>
 
 <aside id="sidebar-multi-level-sidebar"
-    class="fixed top-20 left-0 z-40 w-64 h-screen border-r border-gray-200 transition-transform -translate-x-full sm:translate-x-0"
+    class="fixed top-0 left-0 z-20 w-64 h-full pt-20 border-r border-gray-400 transition-transform -translate-x-full sm:translate-x-0"
     aria-label="Sidebar">
-    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-slate-800">
+    <div class="h-full px-3 py-4 overflow-y-auto bg-light-bg dark:bg-dark-bg">
         <ul class="space-y-2 font-medium">
             <li>
                 <a href="#"
@@ -47,6 +47,10 @@
                     <li>
                         <a href="/admin/media"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Movies</a>
+                    </li>
+                    <li>
+                        <a href="/admin/people"
+                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">People</a>
                     </li>
                     <li>
                         <a href="/admin/users"

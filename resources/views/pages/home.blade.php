@@ -1,4 +1,5 @@
-@extends('layouts/layout')
+@extends('layouts/layout', ['sidebar' => true])
+@include('layouts/sidebar')
 @section('title', 'Laramov')
 
 @section('content')
@@ -9,9 +10,13 @@
     }">
         @include('layouts/navbar')
         <div x-show="activeTab === 'movies'">
-            @include('components.jumbotron')
+            <x-jumbotron title="Featured Movies" :datas="$movies" />
+            <x-card title="Featured Movies" :datas="$movies" />
         </div>
         <div x-show="activeTab === 'genres'">Tab Genres Content</div>
-        <div x-show="activeTab === 'series'">Tab TV-Series Content</div>
+        <div x-show="activeTab === 'series'">
+            <x-jumbotron title="Featured Series" :datas="$tvs" />
+            <x-card title="Featured Series" :datas="$tvs" />
+        </div>
     </div>
 @endsection

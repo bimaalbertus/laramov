@@ -1,4 +1,4 @@
-<div x-data="{
+<div data-tippy-content="Theme toggle" x-data="{
     open: false,
     theme: localStorage.getItem('laramov-theme') || 'system',
     setTheme(newTheme) {
@@ -12,7 +12,8 @@
         this.open = false;
     }
 }" x-init="$watch('theme', value => setTheme(value));
-setTheme(theme)" @click.away="open = false" class="relative">
+setTheme(theme)" @click.away="open = false"
+    class="relative">
     <button @click="open = !open"
         class="flex items-center p-2 hover:bg-slate-400/25 dark:text-whitedark:hover:bg-slate-100/25 rounded-md">
         <span x-show="theme === 'light'">

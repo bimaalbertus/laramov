@@ -1,4 +1,4 @@
-<nav class="fixed w-full z-20 top-0 start-0 bg-white border-b border-gray-200 dark:bg-slate-800">
+<nav class="fixed w-full z-40 top-0 start-0 bg-light-bg border-b border-gray-400 dark:bg-dark-bg">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/admin" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="https://cdn.worldvectorlogo.com/logos/laravel-2.svg" class="h-8" alt="Flowbite Logo" />

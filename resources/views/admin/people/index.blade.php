@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Media CRUD')
+@section('title', 'People CRUD')
 
 @section('content')
     <div class="relative p-10">
@@ -8,17 +8,17 @@
         <x-alert type="success" :message="session('success')" id="success-alert" duration="10000" />
 
         @include('admin.components.admin-header', [
-            'name' => 'media',
-            'title' => 'All media',
-            'placeholder' => 'Search for media...',
+            'name' => 'people',
+            'title' => 'All people',
+            'placeholder' => 'Search for people...',
             'search' => 'block',
-            'formId' => 'delete-all-movies',
-            'formTitle' => 'Delete All Movies',
-            'formMessage' => 'Are you sure want to delete all movies?',
+            'formId' => 'delete-all-people',
+            'formTitle' => 'Delete All People',
+            'formMessage' => 'Are you sure want to delete all people?',
         ])
 
         <div id="resultsContainer">
-            @include('admin.media.media-list', ['media' => $media])
+            @include('admin.people.people-list', ['people' => $people])
         </div>
     </div>
 
@@ -29,11 +29,11 @@
         const searchInput = document.getElementById('default-search');
         const resultsContainer = document.getElementById('resultsContainer');
 
-        function fetchMediaData(query = '') {
+        function fetchPeopleData(query = '') {
             const formData = new FormData();
             formData.append('query', query);
 
-            fetch('/admin/media/search', {
+            fetch('/admin/people/search', {
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
@@ -51,14 +51,14 @@
             const query = this.value;
 
             if (query.length === 0) {
-                fetchMediaData('');
+                fetchPeopleData('');
             } else if (query.length > 2) {
-                fetchMediaData(query);
+                fetchPeopleData(query);
             }
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            fetchMediaData('');
+            fetchPeopleData('');
         });
 
         if (session('success')) {

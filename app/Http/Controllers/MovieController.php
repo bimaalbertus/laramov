@@ -18,16 +18,28 @@ class MovieController extends Controller
 
     public function index()
     {
-        $movies = Movies::get();
+        $all = Movies::get();
+        $movies = Movies::where('media_type', 'movie')->get();
+        $tvs = Movies::where('media_type', 'tv')->get();
+        $latest_release = Movies::latestRelease()->get();
 
-        return view('pages/home', compact('movies'));
+        return view('pages/home', compact('all', 'movies', 'tvs', 'latest_release'));
     }
 
-    public function detail($mediaType, $id)
+    public function detail($media_type, $id)
     {
-        $movie = Movies::where('mediaType', $mediaType)->where('id', $id)->firstOrFail();
+        $movie = Movies::where('media_type', $media_type)->where('id', $id)->firstOrFail();
         $movie->formatted_runtime = $this->formatRuntime($movie->runtime);
 
         return view('pages/detail', compact('movie'));
+    }
+
+    public function watch($media_type, $id)
+    {
+        $movie = Movies::where('media_type', $media_type)->where('id', $id)->firstOrFail();
+        $movie->formatted_runtime = $this->formatRuntime($movie->runtime);
+        $embed = "https://multiembed.mov/directstream.php?video_id=$id&tmdb=1";
+
+        return view('pages/watch', compact('movie', 'embed'));
     }
 }

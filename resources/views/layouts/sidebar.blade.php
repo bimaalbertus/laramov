@@ -28,7 +28,8 @@
 </div>
 
 <!-- Bottom Bar untuk Mobile -->
-<div class="fixed bottom-0 left-0 right-0 z-50 md:hidden flex justify-center">
+<div id="bottom-nav"
+    class="fixed bottom-0 left-0 right-0 z-50 md:hidden flex justify-center transition-transform duration-300">
     <nav class="flex items-center flex-row p-3.5 rounded-full border border-slate-600 glass gap-5 mb-4">
         <div class="flex items-center flex-row gap-4 text-2xl font-thin">
             <a href="/" class="{{ Request::is('/') ? 'active py-2 px-3' : '' }}">
@@ -55,3 +56,26 @@
         </div>
     </nav>
 </div>
+
+<script>
+    let lastScrollY = 0;
+    const sidebar = document.getElementById('bottom-nav');
+
+    const controlSidebar = () => {
+        const scrollY = window.scrollY;
+
+        if (scrollY > 50) {
+            if (scrollY > lastScrollY) {
+                sidebar.style.transform = 'translateY(100%)';
+            } else {
+                sidebar.style.transform = 'translateY(0)';
+            }
+        } else {
+            sidebar.style.transform = 'translateY(0)';
+        }
+
+        lastScrollY = scrollY;
+    };
+
+    window.addEventListener('scroll', controlSidebar);
+</script>
